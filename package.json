@@ -1,0 +1,113 @@
+{
+  "name": "php-i18n-viewer",
+  "displayName": "PHP i18n Inline Display",
+  "description": "Display inline translations for LNG_ and LKP_ localization keys in PHP/Smarty templates",
+  "version": "0.1.0",
+  "publisher": "MohamedHamed",
+  "author": {
+    "name": "MohamedHamed",
+    "email": ""
+  },
+  "license": "MIT",
+  "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MohamedHamed12/php-i18n-extension/.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MohamedHamed12/php-i18n-extension/issues"
+  },
+  "homepage": "https://github.com/MohamedHamed12/php-i18n-extension#readme",
+  "keywords": [
+    "php",
+    "i18n",
+    "internationalization",
+    "localization",
+    "smarty",
+    "translation",
+    "lng",
+    "inline",
+    "preview",
+    "arabic",
+    "multilingual"
+  ],
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Linters",
+    "Visualization"
+  ],
+  "activationEvents": [
+    "workspaceContains:**/modules/*/view/lang/*.conf"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "phpI18n.refreshTranslations",
+        "title": "Reload Translations",
+        "category": "PHP i18n"
+      }
+    ],
+    "configuration": {
+      "title": "PHP i18n Viewer",
+      "properties": {
+        "phpI18n.displayLanguage": {
+          "type": "string",
+          "default": "en",
+          "enum": [
+            "en",
+            "ar",
+            "both"
+          ],
+          "description": "Which language to display inline (en=English, ar=Arabic, both=Both)"
+        },
+        "phpI18n.enableInlineHints": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show translations inline next to keys"
+        },
+        "phpI18n.langFilePattern": {
+          "type": "string",
+          "default": "**/modules/*/view/lang/lang.{locale}.conf",
+          "description": "Pattern to find language files"
+        },
+        "phpI18n.supportedLocales": {
+          "type": "array",
+          "default": [
+            "en",
+            "ar"
+          ],
+          "description": "Supported language codes"
+        },
+        "phpI18n.enableHoverTooltips": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show detailed tooltips on hover"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile",
+    "lint": "eslint src --ext ts",
+    "dev:reload": "powershell -ExecutionPolicy Bypass -File ./dev-reload.ps1"
+  },
+  "devDependencies": {
+    "@types/ini": "^4.1.1",
+    "@types/node": "^20.x",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.x",
+    "@typescript-eslint/parser": "^6.x",
+    "eslint": "^8.x",
+    "typescript": "^5.3.0"
+  },
+  "dependencies": {
+    "ini": "^4.1.1"
+  }
+}
