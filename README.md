@@ -31,13 +31,7 @@ Automatically detects localization keys in:
 
 ### 📁 Multi-Module Support
 Works with modular PHP projects:
-```
-mod/
-  modules/
-    cmn/view/lang/lang.en.conf
-    hr/view/lang/lang.en.conf
-    ts/view/lang/lang.en.conf
-```
+
 
 ### ⚡ High Performance
 - Cached translation parsing
@@ -71,7 +65,7 @@ code .
 ## 🚀 Quick Start
 
 ### 1. Open Your PHP Project
-Open your workspace containing the `modules/*/view/lang/` structure.
+Open your workspace containing the `..../*/v....` structure.
 
 ### 2. Configure (Optional)
 Create `.vscode/settings.json` in your project:
@@ -81,7 +75,7 @@ Create `.vscode/settings.json` in your project:
   "phpI18n.displayLanguage": "en",
   "phpI18n.enableInlineHints": true,
   "phpI18n.enableHoverTooltips": true,
-  "phpI18n.langFilePattern": "**/modules/*/view/lang/lang.{locale}.conf",
+  "phpI18n.langFilePattern": "**/..../*/....",
   "phpI18n.supportedLocales": ["en", "ar"]
 }
 ```
@@ -96,14 +90,13 @@ Open any `.tpl` file containing `{#LNG_xxx#}` keys, and you'll immediately see i
 | `phpI18n.displayLanguage` | `"en"` | Language to display inline (`en` or `ar`) |
 | `phpI18n.enableInlineHints` | `true` | Show translations inline next to keys |
 | `phpI18n.enableHoverTooltips` | `true` | Show detailed tooltips on hover |
-| `phpI18n.langFilePattern` | `**/modules/*/view/lang/lang.{locale}.conf` | Glob pattern for language files |
+| `phpI18n.langFilePattern` |  | Glob pattern for language files |
 | `phpI18n.supportedLocales` | `["en", "ar"]` | Supported language codes |
 
 ## 📚 Language File Format
 
 This extension parses **INI configuration files** with sections:
 
-**File:** `modules/cmn/view/lang/lang.en.conf`
 ```ini
 [PAGE_CITY_LIST]
 LNG_2964 = "City"
@@ -123,7 +116,6 @@ LKP_5823 = "Choose Account"
 
 ### Smarty Template Syntax
 ```smarty
-{config_load file=$_LanguageFile section=$_LanguageSection}
 <h1>{#LNG_2964#}</h1>
 <label>{#LKP_5822#}</label>
 <input placeholder="{#LNG_2968#}" />
@@ -140,7 +132,7 @@ $this->cLangError(404, ['url' => '/page']);
 
 ### Translations not showing?
 
-1. ✅ Check that language files exist: `modules/*/view/lang/lang.en.conf`
+1. ✅ Check that language files exist
 2. ✅ Verify INI format with sections: `[SECTION_NAME]`
 3. ✅ Reload VS Code window
 4. ✅ Check Output panel (View → Output → PHP i18n Viewer)
@@ -148,7 +140,7 @@ $this->cLangError(404, ['url' => '/page']);
 ### Wrong translations appearing?
 
 - The extension auto-detects the current module from your file path
-- Ensure your file is inside: `mod/modules/{module}/view/templates/`
+- Ensure your file is inside
 
 ### Performance issues?
 
